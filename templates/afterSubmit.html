@@ -1,0 +1,95 @@
+{%extends 'base.html' %} 
+{% block title %}Form Filled{% endblock title %} 
+{% block userinfo %}
+<div class="tooltip_cont">
+  <a class="mx-1 tooltip__contd" href="/logout"
+    ><i
+      class="fa-solid fa-right-from-bracket fa-lg"
+      style="color: white !important"
+    ></i>
+    <span class="tooltiptext">Logout</span>
+  </a>
+</div>
+{% endblock %} 
+
+{% block navbuttons %}
+<ul class="navbar-nav me-auto">
+</ul>
+{% endblock %} 
+
+{%block body%} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{% load widget_tweaks %}
+
+<style>
+  body {
+    background-image: url("../static/images/undraw_experience_design_re_ca7l.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  i {
+    color: white;
+  }
+  /* Tooltip text */
+  .tooltip__contd .tooltiptext {
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 10px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    margin-left: -10px;
+  }
+
+  .tooltip__contd:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.7;
+    position: absolute;
+  }
+
+  .tooltip__contd {
+    margin-right: 50px !important;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+  rel="stylesheet"
+/>
+<body>  
+ <!-- <img src="../static/images/undraw_real_time_sync_re_nky7.svg" alt=""> -->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div
+          class="container justify-content-center my-4"
+          style="border-radius: 0.75rem; width: 70%"
+        >
+          <table style="font-family: 'Lato', sans-serif !important">
+            <tbody>
+              {% for key,value in request.session.data.items %} 
+              {% if value|length > 0 and value != '0' and value != 'absent' %}
+              <tr>
+                <th class="col-4">{{key}}</th>
+                <td class="col-6">{{value}}</td>
+              </tr>
+              {% endif %}
+              <tr style="width: 30px !important"></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{%endblock body %}

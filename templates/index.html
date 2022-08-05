@@ -1,0 +1,162 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block navbuttons %}
+<ul class="navbar-nav me-auto">
+  
+</ul>
+{% endblock %}
+
+{% block userinfo %}
+<div class="tooltip_cont" style="margin-right:25px">
+  <a class="mx-1 tooltip__cont" href="/login"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
+    <span class="tooltiptext">Login</span>
+  </a>
+</div>
+<div class="tooltip_cont" style="margin-right:50px">
+  <a class="mx-1 tooltip__cont" href="/signUp"><i class="fa-solid fa-user-plus fa-lg"></i>
+    <span class="tooltiptext">Sign Up</span>
+  </a>
+</div>
+{% endblock %}
+
+{%block body %}
+<link rel="stylesheet" href="../static/css/index.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Alegreya:wght@500&display=swap" rel="stylesheet">
+<style>
+    html, body, #body { height:100% }
+
+  #body { position:relative }
+
+  img {
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:block;
+    z-index:1;
+  }
+
+ 
+
+  /* Tooltip text */
+  .tooltip__cont .tooltiptext {
+  visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 10px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    margin-left: -10px;
+  }
+
+  .tooltip__cont:hover .tooltiptext {
+    visibility: visible;
+    position: absolute;
+    opacity: 0.7;
+  }
+
+  
+
+  span{
+    position: relative;
+  }
+
+  i{
+    color: white;
+  }
+
+  *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins0', sans-serif;
+  }
+
+  .bt{
+    margin-top:50vh;
+    margin-left: 15vw;
+  }
+
+ .form__btn{
+  background-color:transparent;
+  padding: 7px 30px;
+  margin-right: 15px;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  color:#fb7481;
+  font-family: 'Acme', sans-serif;
+  animation: blink 1s linear infinite;
+ }
+
+ @keyframes blink {
+  0%{
+    opacity: 1;
+  }
+  25%{
+    opacity: 0.25;
+  }
+  50%{
+    opacity: .5;
+  }
+  75%{
+    opacity: .75;
+  }
+  100%{
+    opacity: 1;
+  }
+ }
+
+ .form__btn:hover{
+  cursor: pointer;
+  color:white;
+  background:linear-gradient(#fb7381,#f14a60);
+  box-shadow: 0 2px 15px rgba(248, 38 103, 0.26);
+  border: 1px solid #fb7481;
+  border-radius: 15px;
+ }
+
+ .fa-circle-arrow-right{
+  color:#fb7481;
+  font-size: 2rem;
+ }
+
+ .outermost{
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+ img{
+  z-index: -1;
+  position: absolute;
+  width: 100vw;
+
+  height: 100vh;
+  opacity: 0.4;
+}
+
+
+</style>
+<script src="https://kit.fontawesome.com/16e5ab5d0d.js" crossorigin="anonymous"></script>
+<div class="outermost">
+  <img src="../static/images/undraw_settings_tab_mgiw.svg" alt="">
+  <div class="bt">
+    <a class="form__btn" href="/login" type="button">Fill out form <i class="fa-solid fa-circle-arrow-right"></i></a>
+  </div>
+</div>
+<i class="fa-duotone fa-hand-back-point-right"></i>
+
+{%endblock body %}
